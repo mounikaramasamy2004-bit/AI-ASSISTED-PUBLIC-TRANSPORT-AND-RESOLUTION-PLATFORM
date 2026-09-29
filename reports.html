@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reports | SmartTransit AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body data-page="reports">
+<div id="topbar"></div>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="content">
+<div class="d-flex flex-wrap justify-content-between align-items-center mb-4"><div class="mb-4"><h3 class="page-title">Reports &amp; Analytics</h3><div class="text-muted">Summaries you can export or print</div></div><div class="d-flex flex-wrap gap-2 no-print">
+<button class="btn btn-outline-primary btn-sm" data-export="complaints"><i class="bi bi-download"></i> Complaints CSV</button>
+<button class="btn btn-outline-primary btn-sm" data-export="vehicles"><i class="bi bi-download"></i> Vehicles CSV</button>
+<button class="btn btn-outline-primary btn-sm" data-export="users"><i class="bi bi-download"></i> Users CSV</button>
+<button class="btn btn-outline-primary btn-sm" data-export="routes"><i class="bi bi-download"></i> Routes CSV</button>
+<button class="btn btn-primary btn-sm" id="printBtn"><i class="bi bi-printer"></i> Print</button></div></div>
+<div class="row g-3 mb-4"><div class="col-6 col-lg-3"><div class="stat-card bg-g1"><div><div class="num" id="repTotal">0</div><div class="lbl">Total Complaints</div></div><i class="bi bi-chat-left-text"></i></div></div><div class="col-6 col-lg-3"><div class="stat-card bg-g2"><div><div class="num" id="repResolved">0</div><div class="lbl">Resolved</div></div><i class="bi bi-check2-circle"></i></div></div><div class="col-6 col-lg-3"><div class="stat-card bg-g4"><div><div class="num" id="repHours">0</div><div class="lbl">Avg Resolution (hours)</div></div><i class="bi bi-stopwatch"></i></div></div><div class="col-6 col-lg-3"><div class="stat-card bg-g5"><div><div class="num" id="repHigh">0</div><div class="lbl">High Priority</div></div><i class="bi bi-exclamation-triangle"></i></div></div></div>
+<div class="row g-3 mb-4">
+  <div class="col-lg-6"><div class="card"><div class="card-header">Complaints by Category</div><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Category</th><th>Count</th><th>Share</th></tr></thead><tbody id="catBody"></tbody></table></div></div></div>
+  <div class="col-lg-6"><div class="card"><div class="card-header">Complaints by Status</div><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Status</th><th>Count</th><th>Share</th></tr></thead><tbody id="statusBody"></tbody></table></div></div></div>
+</div>
+<div class="row g-3"><div class="col-lg-6"><div class="card"><div class="card-header">Route Usage &amp; Complaints</div><div class="table-responsive"><table class="table mb-0"><thead><tr><th>Route</th><th>Daily passengers</th><th>Complaints</th></tr></thead><tbody id="routeBody"></tbody></table></div></div></div>
+<div class="col-lg-6"><div class="card"><div class="card-header">Fleet Status</div><div class="card-body"><div class="chart-box"><canvas id="fleetChart"></canvas></div></div></div></div></div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+<script src="js/charts.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/admin.js"></script>
+</body>
+</html>

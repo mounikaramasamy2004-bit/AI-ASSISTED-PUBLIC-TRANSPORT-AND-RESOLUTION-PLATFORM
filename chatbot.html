@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Chatbot | SmartTransit AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body data-page="chatbot">
+<div id="topbar"></div>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="content">
+<div class="mb-4"><h3 class="page-title">Transport Assistant</h3><div class="text-muted">Ask about vehicles, routes, delays and complaints</div></div>
+<div class="card"><div class="card-body">
+  <div class="chat-box" id="chatBox"></div>
+  <div class="mt-3" id="chips"></div>
+  <form id="chatForm" class="input-group mt-2"><input class="form-control" id="chatInput" placeholder="Type your question..." autocomplete="off" maxlength="500" required><button class="btn btn-primary"><i class="bi bi-send"></i></button></form>
+</div></div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/chatbot.js"></script>
+</body>
+</html>

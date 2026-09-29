@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Route Search | SmartTransit AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body data-page="routes">
+<div id="topbar"></div>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="content">
+<div class="mb-4"><h3 class="page-title">Route Search &amp; Navigation</h3><div class="text-muted">Find the best route with AI-based recommendation</div></div>
+<div class="card mb-4"><div class="card-body"><form id="searchForm" class="row g-3 align-items-end">
+  <div class="col-md-3"><label class="form-label" for="from">From</label><input class="form-control" id="from" list="placesList" placeholder="e.g. Namakkal" required></div>
+  <div class="col-md-3"><label class="form-label" for="to">To</label><input class="form-control" id="to" list="placesList" placeholder="e.g. Karur" required></div>
+  <div class="col-md-2"><label class="form-label" for="time">Departure time</label><input type="time" class="form-control" id="time"></div>
+  <div class="col-md-2"><label class="form-label" for="weather">Weather</label><select class="form-select" id="weather"><option>Clear</option><option>Cloudy</option><option>Rain</option><option>Fog</option><option>Storm</option></select></div>
+  <div class="col-md-2"><button class="btn btn-primary w-100" id="searchBtn"><i class="bi bi-search me-1"></i>Search</button></div>
+  <datalist id="placesList"></datalist>
+</form></div></div>
+<div id="searchAlert"></div>
+<div class="row g-4">
+  <div class="col-xl-6">
+    <div id="bestPanel" class="mb-3"></div>
+    <div id="results"><div class="text-muted">Enter a start and destination to see available routes.</div></div>
+  </div>
+  <div class="col-xl-6">
+    <div class="card mb-4"><div class="card-body p-2"><div id="map"></div></div></div>
+    <div class="card"><div class="card-header"><i class="bi bi-cpu me-2"></i>AI Delay Predictor</div><div class="card-body">
+      <form id="delayForm" class="row g-2">
+        <div class="col-6 col-md-4"><label class="form-label small">Distance (km)</label><input type="number" step="0.1" min="1" class="form-control" id="dDistance" value="40" required></div>
+        <div class="col-6 col-md-4"><label class="form-label small">Traffic</label><select class="form-select" id="dTraffic"><option value="1">Low</option><option value="2" selected>Medium</option><option value="3">High</option></select></div>
+        <div class="col-6 col-md-4"><label class="form-label small">Weather</label><select class="form-select" id="dWeather"><option>Clear</option><option>Cloudy</option><option>Rain</option><option>Fog</option><option>Storm</option></select></div>
+        <div class="col-6 col-md-3"><label class="form-label small">Hour (0-23)</label><input type="number" min="0" max="23" class="form-control" id="dHour" required></div>
+        <div class="col-6 col-md-3"><label class="form-label small">Day</label><select class="form-select" id="dDay"><option value="0">Mon</option><option value="1">Tue</option><option value="2">Wed</option><option value="3">Thu</option><option value="4">Fri</option><option value="5">Sat</option><option value="6">Sun</option></select></div>
+        <div class="col-6 col-md-3"><label class="form-label small">Stops</label><input type="number" min="0" class="form-control" id="dStops" value="8" required></div>
+        <div class="col-6 col-md-3"><label class="form-label small">Past delay (min)</label><input type="number" step="0.1" min="0" class="form-control" id="dHist" value="4" required></div>
+        <div class="col-12"><button class="btn btn-outline-primary w-100">Predict Delay</button></div>
+      </form><div id="delayResult" class="mt-3"></div></div></div>
+  </div>
+</div>
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/routes.js"></script>
+</body>
+</html>

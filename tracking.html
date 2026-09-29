@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Live Tracking | SmartTransit AI</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  <link href="css/dashboard.css" rel="stylesheet">
+  <link href="css/responsive.css" rel="stylesheet">
+</head>
+<body data-page="tracking">
+<div id="topbar"></div>
+<div class="app-wrapper">
+  <aside id="sidebar" class="sidebar"></aside>
+  <main class="content">
+<div class="mb-4"><h3 class="page-title">Real-Time Vehicle Tracking</h3><div class="text-muted">Simulated GPS positions update automatically</div></div>
+<div class="card mb-4"><div class="card-body">
+  <div class="d-flex flex-wrap gap-2 align-items-center mb-3">
+    <button class="btn btn-success" id="startBtn"><i class="bi bi-play-fill"></i> Start Tracking</button>
+    <button class="btn btn-danger" id="stopBtn"><i class="bi bi-stop-fill"></i> Stop Tracking</button>
+    <button class="btn btn-outline-primary" id="refreshBtn"><i class="bi bi-arrow-clockwise"></i> Refresh</button>
+    <select class="form-select w-auto" id="routeFilter"><option value="">All routes</option></select>
+    <span class="ms-auto small" id="trackStatus"></span>
+  </div>
+  <div id="trackAlert"></div><div id="map"></div>
+</div></div>
+<div class="card"><div class="card-header">Vehicles</div><div class="table-responsive"><table class="table table-hover mb-0">
+<thead><tr><th>ID</th><th>Vehicle No.</th><th>Route</th><th>Driver</th><th>Latitude</th><th>Longitude</th><th>Speed</th><th>Status</th><th>ETA</th></tr></thead><tbody id="vehicleBody"></tbody></table></div></div>
+
+  </main>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="js/api.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/tracking.js"></script>
+</body>
+</html>
